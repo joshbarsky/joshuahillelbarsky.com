@@ -20,7 +20,7 @@
     .offset-bottom-right { position: absolute; bottom: 80px; right: 120px; }
   </style>
 </head>
-<body onclick="handleClick()">
+<body onclick="handleClick(event)">
   makign a nw webstie
   <div class="bottom-left"><a style="color: black; text-decoration: none;" href="1.1-index.html">1</a></div>
   <div class="offset-bottom-right"></div>
@@ -33,7 +33,13 @@
 function handleClick(e) {
   const ignore = ["A", "SPAN"];
   if (!ignore.includes(e.target.tagName)) {
-    window.location.href = "13)red-dirt-animal-body.html";
+    const x = e.clientX;
+    const half = window.innerWidth / 2;
+    if (x < half) {
+      window.location.href = '1.9-flashing-dots.html'; // Previous page
+    } else {
+      window.location.href = '1.10-horizon-video.html'; // Next page
+    }
   }
 }
 </script>
