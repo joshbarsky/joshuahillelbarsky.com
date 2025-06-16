@@ -2,12 +2,11 @@
 <html lang="en">
  <head>
   <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
    Joshua Hillel Barsky
   </title>
   <style>
-
 
 body {
   margin: 0;
@@ -17,43 +16,44 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
   text-align: center;
 }
 
-  .button {
-    font-size: 1em;
-    text-decoration: none;
-    color: black;
-    border: 1px solid black;
-    padding: 8px 16px;
-    margin: 12px;
-    background: transparent;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    width: 80%;
-    max-width: 300px;
-  }
+.button {
+  font-size: 1em;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  padding: 8px 16px;
+  margin: 12px;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 90vw;         /* <— Use viewport width units */
+  max-width: 300px;
+  box-sizing: border-box;
+}
 
-  .button:hover {
-    background-color: #f0f0f0;
-  }
+.label-button {
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  padding: 8px 0;
+  font-size: 1em;
+  text-align: center;
+  width: 90vw;         /* <— Same here */
+  max-width: 200px;
+  box-sizing: border-box;
+}
 
-  .image-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
- margin-top: 60px; /* ← adds vertical space at top */
-    margin-bottom: 20px;
-  }
+.image-button img {
+  width: 90vw;         /* <— And here */
+  max-width: 200px;
+  height: auto;
+  border: 1px solid black;
+  display: block;
+}
 
-  .image-button img {
-    width: 60vw;
-    max-width: 200px;
-    border: 1px solid black;
-    display: block;
-    height: auto;
-  }
 
   .label-button {
     text-decoration: none;
