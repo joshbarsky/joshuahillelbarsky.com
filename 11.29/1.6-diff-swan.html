@@ -72,5 +72,16 @@ function handleClick(e) {
         }
     });
     </script>
+    <script>
+    document.addEventListener('click', function(event) {
+      const x = event.clientX;
+      const width = window.innerWidth;
+      if (x > width * 0.66) {
+        window.location.href = '1.7-dog-food-a.html';
+      } else if (x < width * 0.33) {
+        window.location.href = '1.5-column-a.html';
+      }
+    });
+    </script>
     </body>
 </html>

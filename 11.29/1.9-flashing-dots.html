@@ -91,5 +91,25 @@ function handleClick(e) {
 <div style="position: fixed; top: 8px; left: 40px; font-size: 12px;">
   <a href="1.8-email.html" style="text-decoration: none; color: white;"><</a>
 </div>
+</script>
+  <script>
+    document.addEventListener('click', function(event) {
+      const screenWidth = window.innerWidth;
+      const clickX = event.clientX;
+      if (clickX < screenWidth / 2) {
+        window.location.href = '1.8.html';
+      } else {
+        window.location.href = '1.10.html';
+      }
+    });
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'ArrowLeft') {
+        window.location.href = '1.8.html';
+      } else if (event.key === 'ArrowRight') {
+        window.location.href = '1.10.html';
+      }
+    });
+  </script>
 </body>
 </html>

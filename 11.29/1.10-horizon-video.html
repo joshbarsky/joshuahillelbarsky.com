@@ -45,7 +45,7 @@
     }
   </style>
 </head>
-<body onclick="handleClick()">
+<body onclick="handleClick(event)">
   <div class="bottom-left"><a style="color: black; text-decoration: none;" href="1.1-index.html">1</a></div>
   <div class="offset-bottom-right"></div>
   <iframe src="https://www.youtube.com/embed/-u-gfZZeXGc" allowfullscreen></iframe>
@@ -57,9 +57,14 @@
 
 <script>
 function handleClick(e) {
-  const ignore = ["A", "SPAN"];
-  if (!ignore.includes(e.target.tagName)) {
-    window.location.href = "9)flashing-dots.html";
+  const ignoreTags = ["A", "SPAN", "IFRAME"];
+  if (ignoreTags.includes(e.target.tagName)) return;
+
+  const midpoint = window.innerWidth / 2;
+  if (e.clientX < midpoint) {
+    window.location.href = "1.1-index.html";
+  } else {
+    window.location.href = "1.11-josh-barsky.html";
   }
 }
 </script>

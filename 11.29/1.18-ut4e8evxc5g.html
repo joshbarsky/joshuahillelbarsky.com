@@ -57,9 +57,15 @@
 
 <script>
 function handleClick(e) {
-  const ignore = ["A", "SPAN"];
-  if (!ignore.includes(e.target.tagName)) {
-    window.location.href = "13)red-dirt-animal-body.html";
+  const ignore = ["A", "SPAN", "IFRAME"];
+  if (ignore.includes(e.target.tagName)) return;
+
+  const x = e.clientX;
+  const screenWidth = window.innerWidth;
+  if (x < screenWidth / 2) {
+    window.location.href = "1.17-trying.html"; // previous
+  } else {
+    window.location.href = "1.19-white-truck.html"; // next
   }
 }
 </script>

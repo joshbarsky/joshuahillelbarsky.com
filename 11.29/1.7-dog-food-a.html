@@ -86,6 +86,24 @@ function handleClick(e) {
             window.location.href = '1.8-email.html';
         }
     });
-    </script>
+</script>
+<script>
+  document.addEventListener('click', function(event) {
+    const width = window.innerWidth;
+    if (event.clientX < width / 2) {
+      window.location.href = '1.6.html';
+    } else {
+      window.location.href = '1.8.html';
+    }
+  });
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'ArrowLeft') {
+      window.location.href = '1.6.html';
+    } else if (event.key === 'ArrowRight') {
+      window.location.href = '1.8.html';
+    }
+  });
+</script>
     </body>
 </html>

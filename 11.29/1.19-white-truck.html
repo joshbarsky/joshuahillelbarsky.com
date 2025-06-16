@@ -44,7 +44,13 @@
 function handleClick(e) {
   const ignore = ["A", "SPAN"];
   if (!ignore.includes(e.target.tagName)) {
-    window.location.href = "17)trying.html";
+    const x = e.clientX;
+    const screenWidth = window.innerWidth;
+    if (x < screenWidth / 2) {
+      window.location.href = "1.18-ut4e8evxc5g.html"; // previous page
+    } else {
+      window.location.href = "1.2-autocorrect.html"; // next page
+    }
   }
 }
 </script>

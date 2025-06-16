@@ -15,9 +15,24 @@
       height: 100vh;
       margin: 0;
     }
+    .tap-left, .tap-right {
+      position: fixed;
+      top: 0;
+      width: 33.3333%;
+      height: 100%;
+      z-index: 10;
+    }
+    .tap-left {
+      left: 0;
+    }
+    .tap-right {
+      right: 0;
+    }
   </style>
 </head>
 <body onclick="handleClick()">
+  <div class="tap-left" onclick="window.location.href='1.4-cbt.html'"></div>
+  <div class="tap-right" onclick="window.location.href='1.6-diff-swan.html'"></div>
 
 
   <div class="bottom-left"><a style="color: black; text-decoration: none;" href="1.1-index.html">1</a></div>

@@ -83,5 +83,17 @@ function handleClick(e) {
         }
     });
     </script>
+    <script>
+    document.addEventListener('click', function(event) {
+      const width = window.innerWidth;
+      const x = event.clientX;
+
+      if (x < width / 2) {
+        window.location.href = '1.11-josh-barsky.html';
+      } else {
+        window.location.href = '1.13-red-dirt-animal-body.html';
+      }
+    });
+    </script>
     </body>
 </html>

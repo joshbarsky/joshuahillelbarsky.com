@@ -46,10 +46,18 @@
 <script>
 function handleClick(e) {
   const ignore = ["A", "SPAN"];
-  if (!ignore.includes(e.target.tagName)) {
-    window.location.href = "7)dog-food-a.html";
+  if (ignore.includes(e.target.tagName)) return;
+
+  const x = e.clientX;
+  const screenWidth = window.innerWidth;
+  if (x < screenWidth / 2) {
+    window.location.href = "1.15-start-making.html"; // previous page
+  } else {
+    window.location.href = "1.17-trying.html"; // next page
   }
 }
+
+document.addEventListener("click", handleClick);
 </script>
 
 

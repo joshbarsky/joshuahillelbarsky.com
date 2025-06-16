@@ -23,7 +23,23 @@
       
     </style>
 </head>
-<body onclick="handleClick()"><div style="font-family:\'Times New Roman\', serif; font-size: 12rem; text-align:center; padding-top:30vh;">
+<body>
+<script>
+document.addEventListener('click', function(e) {
+  const ignore = ["A", "SPAN"];
+  const screenWidth = window.innerWidth;
+  const clickX = e.clientX;
+
+  if (!ignore.includes(e.target.tagName)) {
+    if (clickX < screenWidth / 2) {
+      window.location.href = '1.19-white-truck.html';
+    } else {
+      window.location.href = '1.3-brown-truck.html';
+    }
+  }
+});
+</script>
+<div style="font-family:\'Times New Roman\', serif; font-size: 12rem; text-align:center; padding-top:30vh;">
   <div class="bottom-left"><a style="color: black; text-decoration: none;" href="1.1-index.html">1</a></div>
   <div class="offset-bottom-right"></div>
   autocorrect
@@ -32,14 +48,7 @@
 
 
 
-<script>
-function handleClick(e) {
-  const ignore = ["A", "SPAN"];
-  if (!ignore.includes(e.target.tagName)) {
-    window.location.href = "19)white-truck.html";
-  }
-}
-</script>
+
 
 
 

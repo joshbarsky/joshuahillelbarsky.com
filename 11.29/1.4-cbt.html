@@ -74,5 +74,17 @@ function handleClick(e) {
         }
     });
     </script>
+    <script>
+    document.body.addEventListener('click', function(event) {
+      const screenWidth = window.innerWidth;
+      const clickX = event.clientX;
+
+      if (clickX < screenWidth / 3) {
+        window.location.href = '1.3-brown-truck.html';
+      } else if (clickX > (2 * screenWidth) / 3) {
+        window.location.href = '1.5-column-a.html';
+      }
+    });
+    </script>
     </body>
 </html>
