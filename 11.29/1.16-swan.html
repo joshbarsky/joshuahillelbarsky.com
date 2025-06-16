@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>swan page</title>
+  
+    <style>
+      body {
+        background: white;
+        color: black;
+        font-family: "Times New Roman", serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        position: relative;
+        text-align: center;
+      }
+      a { color: inherit; text-decoration: none; }
+      .bottom-left { position: absolute; bottom: 20px; left: 20px; font-size: 66%; text-decoration: none; }
+      .offset-bottom-right { position: absolute; bottom: 80px; right: 120px; }
+      
+        .swan { font-size: 0.6rem; animation: move 4s infinite alternate linear; }
+        @keyframes move { 0% { margin-left: 0; } 100% { margin-left: 90%; } }
+        .bottom-line { margin-bottom: 20px; text-align: justify; text-justify: distribute-all-lines; padding: 0 20px; }
+        .no-style { text-decoration: none; color: inherit; }
+    </style>
+</head>
+<body onclick="handleClick()">
+  <div class="bottom-left"><a style="color: black; text-decoration: none;" href="1.1-index.html">1</a></div>
+  <div class="offset-bottom-right"></div>
+  
+        <div class="swan">swan</div>
+        <div>blue hat</div>
+        <div class="bottom-line">
+          dirt dirt dirt dirt dirt dirt
+          grass grass
+        </div>
+        
+
+
+
+
+
+<script>
+function handleClick(e) {
+  const ignore = ["A", "SPAN"];
+  if (!ignore.includes(e.target.tagName)) {
+    window.location.href = "7)dog-food-a.html";
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<div class="nav-prev" style="position: absolute; top: 20px; left: 20px;"></div>
+<div class="nav-next" style="position: absolute; top: 20px; right: 20px;"></div>
+<a href="1.15-start-making.html" style="position: absolute; top: 10px; left: 10px; text-decoration: none; color: black;">&lt;</a>
+<a href="1.17-trying.html" style="position: absolute; top: 10px; right: 10px; text-decoration: none; color: black;">&gt;</a>
+
+    <script>
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowLeft') {
+            window.location.href = '1.15-start-making.html';
+        } else if (event.key === 'ArrowRight') {
+            window.location.href = '1.17-trying.html';
+        }
+    });
+    </script>
+    </body>
+</html>

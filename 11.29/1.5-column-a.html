@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Column A</title>
+  <style>
+    body {
+      background: white;
+      color: black;
+      font-family: "Times New Roman", serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+    }
+  </style>
+</head>
+<body onclick="handleClick()">
+
+
+  <div class="bottom-left"><a style="color: black; text-decoration: none;" href="1.1-index.html">1</a></div>
+  <div class="offset-bottom-right" style="position: absolute; bottom: 80px; right: 120px;"></div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  
+  
+
+<script>
+function handleClick(e) {
+  const tag = e.target.tagName;
+  const text = e.target.innerText.trim();
+  if (tag !== "A" && !/^\d+$|^no delete$|^<$|^>$/.test(text)) {
+    window.location.href = "1.16-swan.html";
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+<div class="nav-prev" style="position: absolute; top: 20px; left: 20px;"></div>
+<div class="nav-next" style="position: absolute; top: 20px; right: 20px;"></div>
+<a href="1.4-cbt.html" style="position: absolute; top: 10px; left: 10px; text-decoration: none; color: black;">&lt;</a>
+<a href="1.6-diff-swan.html" style="position: absolute; top: 10px; right: 10px; text-decoration: none; color: black;">&gt;</a>
+
+    <script>
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowLeft') {
+            window.location.href = '1.4-cbt.html';
+        } else if (event.key === 'ArrowRight') {
+            window.location.href = '1.6-diff-swan.html';
+        }
+    });
+    </script>
+    </body>
+</html>

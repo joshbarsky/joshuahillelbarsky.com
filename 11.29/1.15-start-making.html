@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I want to start making a website new website</title>
+  <style>
+    body {
+      background: white;
+      color: black;
+      font-family: "Times New Roman", serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      position: relative;
+      text-align: center;
+    }
+    .bottom-left {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 66%;
+      text-decoration: none;
+    }
+    .bottom-right {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      font-size: 66%;
+    }
+    .nav-prev {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+    .nav-next {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    a {
+      color: black;
+      text-decoration: none;
+    }
+    .flip-style {
+      animation: flipItalic 1s infinite alternate;
+    }
+    @keyframes flipItalic {
+      0% { font-style: normal; }
+      100% { font-style: italic; }
+    }
+  </style>
+</head>
+<body>
+  <div style="border: 1px solid black; padding: 2rem; font-size: 2rem;">
+    <span class="flip-style">a website new website</span>
+  </div>
+  <div class="nav-prev"></div>
+  <div class="nav-next"></div>
+  <div class="bottom-left"><a href="1.1-index.html">1</a></div>
+<a href="1.14-rocks.html" style="position: absolute; top: 10px; left: 10px; text-decoration: none; color: black;">&lt;</a>
+<a href="1.16-swan.html" style="position: absolute; top: 10px; right: 10px; text-decoration: none; color: black;">&gt;</a>
+
+    <script>
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowLeft') {
+            window.location.href = '1.14-rocks.html';
+        } else if (event.key === 'ArrowRight') {
+            window.location.href = '1.16-swan.html';
+        }
+    });
+    </script>
+    </body>
+</html>

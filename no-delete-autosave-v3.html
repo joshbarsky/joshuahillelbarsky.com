@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>No-Delete Word Processor</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --status-bg: #fbeae5;
+      --status-color: #000000;
+      --button-bg: #e6cfc2;
+      --button-hover: #d8beb0;
+    }
+
+    .dark-mode {
+      --bg-color: #000000;
+      --text-color: #39FF14;
+      --status-bg: #000000;
+      --status-color: #39FF14;
+      --button-bg: #000000;
+      --button-hover: #111111;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body:not(.dark-mode), textarea:not(.dark-mode) {
+      font-family: "Times New Roman", Times, serif;
+    }
+
+    .dark-mode body, .dark-mode textarea, .dark-mode button {
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    textarea {
+      flex: 1;
+      width: 100%;
+      padding: 2rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border: none;
+      outline: none;
+      resize: none;
+      box-sizing: border-box;
+      background: var(--bg-color);
+      color: var(--text-color);
+      spellcheck: false;
+      autocorrect: off;
+      autocomplete: off;
+      autocapitalize: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-text-decoration-skip: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    textarea::selection {
+      background: transparent;
+    }
+
+    textarea::-webkit-spelling-error,
+    textarea::-webkit-grammar-error {
+      text-decoration: none;
+    }
+
+    #statusbar {
+      background: var(--status-bg);
+      color: var(--status-color);
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    button {
+      background: var(--button-bg);
+      color: var(--text-color);
+      border: none;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.9rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: var(--button-hover);
+    }
+  </style>
+</head>
+<body>
+  <textarea id="editor" placeholder="..." lang="en" data-gramm="false"></textarea>
+  <div id="statusbar">
+    <span id="wordcount">Words: 0</span>
+    <span><span id="save-time">00:00</span> : <span id="live-clock">00:00</span></span>
+    <div class="button-group">
+      <button id="toggle-theme">◯</button>
+      <button id="save-txt">.txt</button>
+      <button id="pdf-btn">Export PDF</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    const editor = document.getElementById('editor');
+    const wordcount = document.getElementById('wordcount');
+    const toggleThemeBtn = document.getElementById('toggle-theme');
+    const pdfBtn = document.getElementById('pdf-btn');
+    const saveTxtBtn = document.getElementById('save-txt');
+    const saveTimeEl = document.getElementById('save-time');
+    const liveClockEl = document.getElementById('live-clock');
+    const AUTOSAVE_KEY = 'noDeleteEditorAutosave';
+    const AUTOSAVE_TIME_KEY = 'noDeleteEditorAutosaveTime';
+
+    function getTimestampFilename(extension) {
+      const now = new Date();
+      const pad = n => n.toString().padStart(2, '0');
+      return `${pad(now.getMonth()+1)}-${pad(now.getDate())}-${now.getFullYear().toString().slice(2)}_${pad(now.getHours())}${pad(now.getMinutes())}.${extension}`;
+    }
+
+    editor.setAttribute("spellcheck", "false");
+    editor.setAttribute("autocomplete", "off");
+    editor.setAttribute("autocorrect", "off");
+    editor.setAttribute("autocapitalize", "none");
+    editor.setAttribute("data-gramm", "false");
+    editor.setAttribute("data-enable-grammarly", "false");
+
+    editor.addEventListener('keydown', (e) => {
+      const forbidden = ['Delete', 'Backspace'];
+      if (forbidden.includes(e.key)) e.preventDefault();
+      if (editor.selectionStart !== editor.selectionEnd && e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
+        e.preventDefault();
+      }
+    });
+
+    function updateWordCount() {
+      const text = editor.value.trim();
+      const count = text.length ? (text.match(/\b\w+\b/g) || []).length : 0;
+      wordcount.textContent = 'Words: ' + count;
+    }
+
+    function updateTimestamp() {
+      const now = new Date();
+      const hh = String(now.getHours()).padStart(2, '0');
+      const mm = String(now.getMinutes()).padStart(2, '0');
+      const timeString = `${hh}:${mm}`;
+      localStorage.setItem(AUTOSAVE_TIME_KEY, timeString);
+      saveTimeEl.textContent = timeString;
+    }
+
+    function updateLiveClock() {
+      const now = new Date();
+      const hh = String(now.getHours()).padStart(2, '0');
+      const mm = String(now.getMinutes()).padStart(2, '0');
+      liveClockEl.textContent = `${hh}:${mm}`;
+    }
+
+    setInterval(updateLiveClock, 1000);
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem(AUTOSAVE_KEY);
+      const timestamp = localStorage.getItem(AUTOSAVE_TIME_KEY);
+      if (saved) editor.value = saved;
+      if (timestamp) saveTimeEl.textContent = timestamp;
+      updateWordCount();
+      updateLiveClock();
+    });
+
+    editor.addEventListener('input', () => {
+      localStorage.setItem(AUTOSAVE_KEY, editor.value);
+      updateTimestamp();
+      updateWordCount();
+    });
+
+    window.addEventListener('beforeunload', (e) => {
+      if (editor.value.trim()) {
+        e.preventDefault();
+        e.returnValue = '';
+      }
+    });
+
+    toggleThemeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggleThemeBtn.textContent = document.body.classList.contains('dark-mode') ? '|' : '◯';
+    });
+
+    saveTxtBtn.addEventListener('click', () => {
+      const blob = new Blob([editor.value], { type: 'text/plain;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = getTimestampFilename("txt");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+
+    pdfBtn.addEventListener('click', () => {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({
+        unit: "pt",
+        format: "letter",
+        hotfixes: ["px_scaling"]
+      });
+
+      doc.setFont("times", "normal");
+      doc.setFontSize(12);
+
+      const marginLeft = 72;
+      const marginTop = 72;
+      const pageWidth = doc.internal.pageSize.getWidth();
+      const maxLineWidth = pageWidth - marginLeft * 2;
+      const lineHeight = 28;
+      let y = marginTop;
+
+      const lines = editor.value.split('\n');
+      lines.forEach(line => {
+        const wrapped = doc.splitTextToSize(line, maxLineWidth);
+        wrapped.forEach(wrap => {
+          if (y > 720) { doc.addPage(); y = marginTop; }
+          doc.text('     ' + wrap, marginLeft, y);
+          y += lineHeight;
+        });
+        if (!wrapped.length) y += lineHeight;
+      });
+
+      doc.save(getTimestampFilename("pdf"));
+      editor.value = '';
+      updateWordCount();
+    });
+  </script>
+</body>
+</html>

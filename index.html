@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Joshua Hillel Barsky
+  </title>
+  <style>
+   body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      overflow: hidden;
+      height: 100vh;
+      font-family: "Times New Roman", serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .button {
+      font-size: 1em;
+      text-decoration: none;
+      color: black;
+      border: 1px solid black;
+      padding: 8px 16px;
+      margin: 12px;
+      background: transparent;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #f0f0f0;
+    }
+
+    .image-button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .image-button img {
+      width: 150px;
+      border: 1px solid black;
+      display: block;
+    }
+
+    .label-button {
+      width: 150px;
+      text-decoration: none;
+      color: black;
+      border: 1px solid black;
+      padding: 8px 0;
+      font-size: 1em;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .label-button:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+ </head>
+ <body>
+  <div class="image-button">
+   <img alt="Manhood" src="./manhood_button.png"/>
+   <a class="label-button" href="./manhood 1.4.html" id="btn1">
+    novel,
+    <em>
+     Manhood
+    </em>
+    (2025)
+   </a>
+  </div>
+  <a class="button" href="./11.29/1.1-index.html" id="btn2">
+   untitled part one
+  </a>
+  <a class="button" href="./no-delete-autosave-v3.html" id="btn3">
+   no-delete, word processor
+  </a>
+  <a class="button" href="./honey_locust_animation_expansion/index.html" id="btn4">
+   the honey locust
+  </a>
+  <div style="position: absolute; bottom: 10px; width: 100%; text-align: center; font-size: 10px; font-family: 'Times New Roman', serif; color: black;">
+   JOSHUA HILLEL BARSKY
+  </div>
+ </body>
+</html>
+<script>
+ function subtleFloat(button) {
+    let angle = 0;
+    const radius = 2;
+    function move() {
+      angle += 0.01;
+      const x = Math.cos(angle) * radius;
+      const y = Math.sin(angle) * radius;
+      button.style.transform = `translate(${x}px, ${y}px)`;
+      requestAnimationFrame(move);
+    }
+    move();
+  }
+
+  subtleFloat(document.getElementById('btn1'));
+  subtleFloat(document.getElementById('btn2'));
+  subtleFloat(document.getElementById('btn3'));
+  subtleFloat(document.getElementById('btn4'));
+</script>

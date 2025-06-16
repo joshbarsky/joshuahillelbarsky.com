@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manhood (2025)</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Times New Roman", serif;
+      background-color: white;
+      color: black;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .left {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    .floating-image {
+      max-height: 90%;
+      max-width: 100%;
+      border: 1px solid black;
+      animation: fadeFloat 20s infinite alternate ease-in-out;
+    }
+
+    @keyframes fadeFloat {
+      0% { opacity: 1; transform: translate(0px, 0px); }
+      50% { opacity: 0.4; transform: translate(-5px, -5px); }
+      100% { opacity: 1; transform: translate(5px, 5px); }
+    }
+
+    .right {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      box-sizing: border-box;
+      letter-spacing: 0.06em;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      margin-bottom: 40px;
+      font-style: italic;
+    }
+
+    a.email {
+      font-size: 14px;
+      color: black;
+      text-decoration: none;
+      position: relative;
+      animation: emailDrift 60s linear infinite alternate;
+    }
+
+    @keyframes emailDrift {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(5px, 20px); }
+      100% { transform: translate(-5px, 40px); }
+    }
+
+    .dot {
+      position: absolute;
+      font-size: 10px;
+      color: black;
+      animation: drift 60s linear infinite;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    @keyframes drift {
+      0% { transform: translate(0px, 0px); }
+      100% { transform: translate(100vw, -100vh); }
+    }
+  </style>
+</head>
+<body>
+  <div class="left">
+    <img src="manhood_cover.png" alt="Manhood Cover" class="floating-image">
+  </div>
+  <div class="right" id="right-section">
+    <h1>Manhood (2025)</h1>
+    <p>Publisher’s draft available upon request</p>
+    <a href="mailto:joshuabarsky@gmail.com" class="email">joshuabarsky@gmail.com</a>
+  </div>
+
+  <script>
+    const body = document.body;
+    for (let i = 0; i < 150; i++) {
+      const dot = document.createElement("div");
+      dot.className = "dot";
+      dot.textContent = ".";
+      dot.style.left = Math.random() * window.innerWidth + "px";
+      dot.style.top = Math.random() * window.innerHeight + "px";
+      dot.style.animationDuration = (40 + Math.random() * 40) + "s";
+      dot.style.opacity = 0.04 + Math.random() * 0.06;
+      body.appendChild(dot);
+    }
+  </script>
+</body>
+</html>

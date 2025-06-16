@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>uck is coming</title>
+  <style>
+    body {
+      margin: 0;
+      background: white;
+      color: black;
+      font-family: 'Times New Roman', serif;
+    }
+    .centered {
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 25vh 5vw;
+      border: 1px solid black;
+      display: inline-block;
+    }
+    .bottom-right {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+    }
+    .bottom-left {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+    }
+    .nav-prev {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+    .nav-next {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <div style="text-align:center;">
+    <div class="centered">uck is coming</div>
+  </div>
+  <div class="nav-prev"></div>
+  <div class="nav-next"></div>
+  <div class="bottom-left"><a href="1.1-index.html">1</a></div>
+  <div class="bottom-right"></div>
+<a href="1.2-autocorrect.html" style="position: absolute; top: 10px; left: 10px; text-decoration: none; color: black;">&lt;</a>
+<a href="1.4-cbt.html" style="position: absolute; top: 10px; right: 10px; text-decoration: none; color: black;">&gt;</a>
+
+    <script>
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowLeft') {
+            window.location.href = '1.2-autocorrect.html';
+        } else if (event.key === 'ArrowRight') {
+            window.location.href = '1.4-cbt.html';
+        }
+    });
+    </script>
+    </body>
+</html>

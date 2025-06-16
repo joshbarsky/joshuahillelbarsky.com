@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Floating Squares</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: white;
+            overflow: hidden;
+            font-family: "Times New Roman", serif;
+        }
+        .square {
+            position: absolute;
+            border: 1px solid black;
+            background: transparent;
+            animation: float 8s infinite linear alternate;
+        }
+        .email {
+            position: absolute;
+            color: black;
+            font-size: 16px;
+            animation: floatEmail 12s infinite linear alternate;
+        }
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50vw, 50vh); }
+        }
+        @keyframes floatEmail {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-50vw, 50vh); }
+        }
+    </style>
+</head>
+<body>
+    
+<div style="position: fixed; top: 8px; left: 8px; font-size: 16px;">
+  <a href="1.1-index.html" style="text-decoration: none; color: black;">1</a>
+</div>
+<div style="position: fixed; top: 8px; right: 8px; font-size: 16px;">
+  <a href="1.9-flashing-dots.html" style="text-decoration: none; color: black;">></a>
+</div>
+<div style="position: fixed; top: 8px; left: 40px; font-size: 16px;">
+  <a href="1.7-dog-food-a.html" style="text-decoration: none; color: black;"><</a>
+</div>
+
+    <script>
+        const body = document.body;
+        for (let i = 0; i < 6; i++) {
+            const div = document.createElement("div");
+            div.className = "square";
+            const size = Math.floor(Math.random() * 150) + 100;
+            div.style.width = size + "px";
+            div.style.height = size + "px";
+            div.style.left = Math.random() * (window.innerWidth - size) + "px";
+            div.style.top = Math.random() * (window.innerHeight - size) + "px";
+            div.style.animationDelay = (Math.random() * 5) + "s";
+            body.appendChild(div);
+        }
+        const email = document.createElement("div");
+        email.className = "email";
+        email.innerText = "joshuabarsky@gmail.com";
+        email.style.left = Math.random() * window.innerWidth + "px";
+        email.style.top = Math.random() * window.innerHeight + "px";
+        document.body.appendChild(email);
+    </script>
+
+    <script>
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowLeft') {
+            window.location.href = '1.7-dog-food-a.html';
+        } else if (event.key === 'ArrowRight') {
+            window.location.href = '1.9-flashing-dots.html';
+        }
+    });
+    </script>
+    </body>
+</html>
