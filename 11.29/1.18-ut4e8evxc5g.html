@@ -45,11 +45,12 @@
     }
   </style>
 </head>
-<body onclick="handleClick()">
+<body>
   <div class="bottom-left"><a style="color: black; text-decoration: none;" href="1.1-index.html">1</a></div>
   <div class="offset-bottom-right"></div>
   <iframe src="https://www.youtube.com/embed/UT4E8eVXc5g" allowfullscreen></iframe>
   <div class="nav-buttons">adkjfhakljkljjj</div>
+
 
 
 
@@ -63,11 +64,13 @@ function handleClick(e) {
   const x = e.clientX;
   const screenWidth = window.innerWidth;
   if (x < screenWidth / 2) {
-    window.location.href = "1.17-trying.html"; // previous
+    window.location.href = "1.17-trying.html";
   } else {
-    window.location.href = "1.19-white-truck.html"; // next
+    window.location.href = "1.19-white-truck.html";
   }
 }
+
+document.addEventListener("click", handleClick);
 </script>
 
 
