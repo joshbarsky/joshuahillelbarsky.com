@@ -71,20 +71,21 @@ function handleClick(e) {
     </script>
 
   <script>
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowLeft') {
+            window.location.href = '1.10.html';
+        } else if (event.key === 'ArrowRight') {
+            window.location.href = '1.12.html';
+        }
+    });
+
     document.addEventListener('click', function(event) {
       const x = event.clientX;
       const width = window.innerWidth;
-      if (x < width / 2) {
-        window.location.href = '1.10.html'; // previous page
-      } else {
-        window.location.href = '1.12.html'; // next page
-      }
-    });
 
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'ArrowLeft') {
+      if (x < width / 2) {
         window.location.href = '1.10.html';
-      } else if (event.key === 'ArrowRight') {
+      } else {
         window.location.href = '1.12.html';
       }
     });
