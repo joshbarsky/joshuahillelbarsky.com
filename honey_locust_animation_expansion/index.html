@@ -1,13 +1,30 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Honey Locust Expansion</title>
     <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      transition: opacity 8s ease-in-out;
+    }
+    body.fade-out {
+      opacity: 0;
+    }
+  </style>
 </head>
 <body>
 <canvas id="canvas"></canvas>
 <script src="script.js"></script>
+
+<script>
+  setTimeout(function() {
+    document.body.classList.add('fade-out');
+    setTimeout(function() {
+      window.location.href = "hl2.html";
+    }, 8000); // Wait for the fade-out transition to complete
+  }, 5000);
+</script>
+
 </body>
 </html>
