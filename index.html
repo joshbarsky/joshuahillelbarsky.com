@@ -1,131 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
+<head>
   <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>
-   Joshua Hillel Barsky
-  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Joshua Hillel Barsky</title>
   <style>
-
-body {
-  margin: 0;
-  padding: 0;
-  background: white;
-  font-family: "Times New Roman", serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.button {
-  font-size: 1em;
-  text-decoration: none;
-  color: black;
-  border: 1px solid black;
-  padding: 8px 16px;
-  margin: 12px;
-  background: transparent;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  width: 90vw;         /* <— Use viewport width units */
-  max-width: 300px;
-  box-sizing: border-box;
-}
-
-.label-button {
-  text-decoration: none;
-  color: black;
-  border: 1px solid black;
-  padding: 8px 0;
-  font-size: 1em;
-  text-align: center;
-  width: 90vw;         /* <— Same here */
-  max-width: 200px;
-  box-sizing: border-box;
-}
-
-.image-button img {
-  width: 90vw;         /* <— And here */
-  max-width: 200px;
-  height: auto;
-  border: 1px solid black;
-  display: block;
-}
-
-
-  .label-button {
-    text-decoration: none;
-    color: black;
-    border: 1px solid black;
-    padding: 8px 0;
-    font-size: 1em;
-    text-align: center;
-    margin-top: 0;
-    width: 60vw;
-    max-width: 200px;
-  }
-
-  .label-button:hover {
-    background-color: #f0f0f0;
-  }
-
-
-
-footer {
-  margin-top: auto;
-  padding: 10px 0;
-  font-size: 10px;
-  font-family: 'Times New Roman', serif;
-  color: black;
-}
-
-  @media (max-width: 600px) {
     body {
-      padding: 20px 10px;
+      margin: 40px 0 0;
+      padding: 0 10px;
+      background: white;
+      font-family: "Times New Roman", serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      text-align: center;
+      box-sizing: border-box;
     }
 
-    .button,
+    .button {
+      font-size: 1em;
+      text-decoration: none;
+      color: black;
+      border: 1px solid black;
+      padding: 8px 16px;
+      margin: 12px;
+      background: transparent;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 80%;
+      max-width: 300px;
+    }
+
+    .button:hover {
+      background-color: #f0f0f0;
+    }
+
+    .image-button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .image-button img {
+      width: 60vw;
+      max-width: 200px;
+      border: 1px solid black;
+      display: block;
+      height: auto;
+    }
+
     .label-button {
-      width: 100%;
+      text-decoration: none;
+      color: black;
+      border: 1px solid black;
+      padding: 8px 0;
+      font-size: 1em;
+      text-align: center;
+      margin-top: 0;
+      width: 60vw;
+      max-width: 200px;
+    }
+
+    .label-button:hover {
+      background-color: #f0f0f0;
     }
 
     footer {
-      font-size: 12px;
+      margin-top: 40px;
+      font-size: 10px;
+      font-family: 'Times New Roman', serif;
+      color: black;
     }
-  }
-</style>
 
+    @media (max-width: 600px) {
+      .button,
+      .label-button {
+        width: 100%;
+      }
 
- </head>
- <body>
+      footer {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
   <div class="image-button">
-   <img alt="Manhood" src="./manhood_button.png"/>
-   <a class="label-button" href="./manhood 1.4.html" id="btn1">
-    novel,
-    <em>
-     Manhood
-    </em>
-    (2025)
-   </a>
+    <img alt="Manhood" src="./manhood_button.png"/>
+    <a class="label-button" href="./manhood 1.4.html" id="btn1">
+      novel, <em>Manhood</em> (2025)
+    </a>
   </div>
-  <a class="button" href="./11.29/1.1-index.html" id="btn2">
-   untitled part one
-  </a>
-  <a class="button" href="./no-delete-autosave-v3.html" id="btn3">
-   no-delete, word processor
-  </a>
-  <a class="button" href="./honey_locust_animation_expansion/index.html" id="btn4">
-   the honey locust
-  </a>
-<footer>
-  JOSHUA HILLEL BARSKY
-</footer>
- </body>
-</html>
+  <a class="button" href="./11.29/1.1-index.html" id="btn2">untitled part one</a>
+  <a class="button" href="./no-delete-autosave-v3.html" id="btn3">no-delete, word processor</a>
+  <a class="button" href="./honey_locust_animation_expansion/index.html" id="btn4">the honey locust</a>
+  <footer>JOSHUA HILLEL BARSKY</footer>
+</body>
 <script>
- function subtleFloat(button) {
+  function subtleFloat(button) {
     let angle = 0;
     const radius = 2;
     function move() {
@@ -143,3 +118,4 @@ footer {
   subtleFloat(document.getElementById('btn3'));
   subtleFloat(document.getElementById('btn4'));
 </script>
+</html>
