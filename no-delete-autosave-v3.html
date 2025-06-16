@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
   <title>No-Delete Word Processor</title>
   <style>
     :root {
@@ -43,14 +44,17 @@
 
     textarea {
       flex: 1;
-      width: 100%;
-      padding: 2rem;
-      font-size: 0.95rem;
+      width: 90vw;
+      max-width: 600px;
+      height: 80vh;
+      font-size: 1rem;
       line-height: 1.6;
+      font-family: 'Times New Roman', serif;
+      box-sizing: border-box;
+      padding: 2rem;
       border: none;
       outline: none;
       resize: none;
-      box-sizing: border-box;
       background: var(--bg-color);
       color: var(--text-color);
       spellcheck: false;
