@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HL5</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      height: 100%;
+      width: 100%;
+      font-family: "Times New Roman", serif;
+    }
+    #dot {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.5rem;
+      color: black;
+    }
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: black;
+      border-radius: 50%;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <!-- existing content of hl4.html -->
+
+  <div id="dot">.</div>
+  <script>
+    const dot = document.getElementById('dot');
+    let spawnRate = 200; // start slow
+    let spawnDecay = 0.96; // faster decay for more particles over time
+    let velocityScale = 1; // scale up particle violence
+    let lastMouseSpawn = 0;
+
+    function spawnParticle(xPos = null, yPos = null) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      let x, y;
+      if (xPos !== null && yPos !== null) {
+        x = xPos;
+        y = yPos;
+      } else {
+        const xOffset = (Math.random() - 0.5) * 200;
+        x = window.innerWidth / 2 + xOffset;
+        y = window.innerHeight - 40;
+      }
+      p.style.left = `${x}px`;
+      p.style.top = `${y}px`;
+      document.body.appendChild(p);
+
+      // Animate particle with more aggressive velocity
+      let dy, dx;
+      if (xPos !== null && yPos !== null) {
+        dy = (Math.random() - 0.5) * 6 * velocityScale;
+        dx = (Math.random() - 0.5) * 6 * velocityScale + (Math.random() - 0.5);
+      } else {
+        dy = (Math.random() - 0.5) * 6 * velocityScale;
+        dx = (Math.random() - 0.5) * 6 * velocityScale;
+      }
+      let life = 0;
+
+      function animate() {
+        if (life > 200) {
+          p.remove();
+          return;
+        }
+        const rect = p.getBoundingClientRect();
+        p.style.top = rect.top + dy + 'px';
+        p.style.left = rect.left + dx + 'px';
+        life++;
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+
+    function spawnFromLines() {
+      const midX = window.innerWidth * 0.495;
+      spawnParticle(midX, window.scrollY + window.innerHeight - 40);
+      spawnParticle(midX + 10, window.scrollY + window.innerHeight - 40);
+      spawnRate *= spawnDecay;
+      spawnRate = Math.max(spawnRate, 5);
+      velocityScale += 0.002;
+    }
+    function loopLines() {
+      spawnFromLines();
+      setTimeout(loopLines, spawnRate);
+    }
+    loopLines();
+  </script>
+</div>
+  <div style="margin: 6rem 12rem; font-family: 'Times New Roman', serif; font-size: 1rem; line-height: 1.6;">
+    <p>It 2as disporotianote. To minor event the reaction was disporationate. Epsecially those invovling perceptiosn of hygeine, normalcy, or family behaviour. Triggering a cascade of memory, selef inquiry, and rleational reflection. The event unearrtherd layers of early shame and deep seated fears about abnromailty, unworthiness, and belonging.</p>
+    <p>Shame sensitivyt. The label “disgusting,” a latent schema of defectiveness, rooted in childhood experiences of being perceived as strange or socially unaccapetable. Overidenfication with normativity: HB interlized the bleief that other familes represnted a norm to be emulated. The rpoduced chroic slef-monitoring adn comparison especially in relation to class, hygiende, and affect.</p>
+    <p>Emotional maturiation with residual fragility. HB su possosses strong relational insight and ethical coim munication practices. Names emotions adn avoids passive aggression. Still fears that authenticity will lead to alieantion, especially with familail contexts.</p>
+    <p>Psychic split: a divison persists between HB’s self as is (intimate, damaged, ehtical) and as it “should” be (normal, composed, acceptable). This dissonance animates both his growth an dhis suffering.</p>
+    <p>Memory looping and narrative digression; emotion is processed recursively—through story, self-effacing humour, and over-explanatino. While often illuminating, they may also serve as a defense against direct emotioanl experience.</p>
+    <p>Conflicted attachment. HB desires deep connection but fears that full self revelation will repel others. This pattern aligns with an anxious-preoccupied attachemtn style.</p>
+    <p>Developmental origins underpin the structure. A psychic fracutre. What should have been a neutral or even healthy behavioru became a source of ridicule. Helped form a lasting assoication between care and humiliation, cleanliness and shame.</p>
+    <p>High verabl and emotional intellignece. Active commitment to repair in intimiate relationships. Strong capacity for self relfection. Use of humor and irony as adaptive tools.</p>
+    <p>Wuppression of needs in relationships due to fear of rjection. Emotinal fatigue from overanalysis of minor interpersonal ruptures. Persistent internal narrative of being unlovable or fundamentally falwed.</p>
+    <p>Continue ehtical communication and boundary setting. Somatic and taruma infgormerd thegrapy to bypass habitual intelelcutal defences and allow emotion injures to be fetl adn integrated.</p>
+    <p>Ritual mourning of lost normalcy—the imagined normal life of childhood that never came—in order to claim the one that did. Reintregration of disavowed experience. Accept shame memories as intgral to identity. Narrative reframing—shift view of normal from aspriational to illusory. Undersrtand strangeness as inheritance rather than defect.</p>
+    <p>HB must resist the urge to solve or explain away shame. Instead stay in contact with the feeling. Integration will not coem from resolution but from ability to be present with discomfort. Capacity for reflection, love and ethical communciation suggests he is not broke—only finely damaged. To skee to live ethically within that cdamage.</p>
+    <p>It is not ignroace but a deep looping cognition that never quite reaches teh body. HB knwos the source of shame but hasn’t yet felt it fully. Hasnt stayed with heat in cheeks, shallow breath, urge to disappear. The core animal terror of being seen and rejected at once. Not to fix ti, not to narrate it. Isnread—to stay. Omtsead opf looping into analysis paus e feel name and breathe it.</p>
+    <p>Not rooted in catasrophe but in persistent invaldiation. The world said you are strange and he believed it. Healing does not mean rejecting that belief, but living with it. Regulation, titration, interanl family system. The amsahed child is not a mistake—it is bvpart of a whole.</p>
+    <p>Not clarity but compassion. Not closure but co existenec. Nothing particulalry wrong with HB but a wound that recurs. A sensitivy to shame that perrvades his life and relationships. Growth lies not in escpaing it but in learnning to live alongside euit. To let love be imperfect. To let body feel what the mind already knows. Tio stop aspiring to normalcy and inhabit strangeness as a form of truth.</p>
+  </div>
+</body>
+</html>
