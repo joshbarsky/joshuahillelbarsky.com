@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 4rem;
+      background-color: #ffffff;
+      font-family: serif;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #b38c00; /* darker yellow for text contrast */
+    }
+
+    .highlight {
+      background-color: #f3d87e;
+      padding: 0.5rem 1rem;
+      display: inline-block;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    button {
+      background-color: #f3d87e;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      background-color: #e8cc70;
+    }
+
+    .beige-box {
+      background-color: #f8eee2;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-top: 1.5rem;
+    }
+    .skin-beige {
+      background-color: #efd8c5; /* light skin tone */
+      padding: 1rem;
+      border-radius: 6px;
+      margin-top: 1.5rem;
+    }
+    .dark-brown {
+      background-color: #3b2f2f;
+      color: #fceae4; /* light text for contrast */
+      padding: 1rem;
+      border-radius: 6px;
+      margin-top: 1.5rem;
+    }
+    .organic-shape {
+      position: absolute;
+      opacity: 0.7;
+      mix-blend-mode: multiply;
+      transition: border-radius 4s ease-in-out;
+    }
+
+    .shape1 {
+      width: 180px;
+      height: 220px;
+      background-color: #3b2f2f;
+      border-radius: 40% 60% 55% 45% / 60% 40% 55% 45%;
+      top: 100px;
+      left: 10%;
+      animation: float1 18s infinite alternate ease-in-out, morph1 26s infinite alternate ease-in-out;
+    }
+
+    .shape2 {
+      width: 200px;
+      height: 180px;
+      background-color: #efd8c5;
+      border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
+      top: 160px;
+      left: 40%;
+      animation: float2 22s infinite alternate ease-in-out, morph2 30s infinite alternate ease-in-out;
+    }
+
+    .shape3 {
+      width: 160px;
+      height: 200px;
+      background-color: #f8eee2;
+      border-radius: 55% 45% 60% 40% / 40% 50% 60% 50%;
+      top: 220px;
+      left: 65%;
+      animation: float3 20s infinite alternate ease-in-out, morph3 24s infinite alternate ease-in-out;
+    }
+
+    .shape4 {
+      width: 200px;
+      height: 190px;
+      background-color: #fceae4;
+      border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
+      top: 300px;
+      left: 25%;
+      animation: float4 16s infinite alternate ease-in-out, morph4 28s infinite alternate ease-in-out;
+    }
+
+    .shape5 {
+      width: 190px;
+      height: 210px;
+      background-color: #f3d87e;
+      border-radius: 60% 40% 60% 40% / 50% 60% 40% 50%;
+      top: 180px;
+      left: 70%;
+      animation: float5 25s infinite alternate ease-in-out, morph5 35s infinite alternate ease-in-out;
+    }
+
+    @keyframes float1 {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-15px, 25px) rotate(5deg); }
+    }
+    @keyframes float2 {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(10px, -20px) rotate(-3deg); }
+    }
+    @keyframes float3 {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-25px, 10px) rotate(7deg); }
+    }
+    @keyframes float4 {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(20px, -10px) rotate(-6deg); }
+    }
+    @keyframes float5 {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-12px, 15px) rotate(4deg); }
+    }
+
+    @keyframes morph1 {
+      0%, 100% { border-radius: 20% 80% 30% 70% / 70% 30% 80% 20%; }
+      50% { border-radius: 85% 15% 60% 40% / 30% 70% 20% 80%; }
+    }
+    @keyframes morph2 {
+      0%, 100% { border-radius: 40% 60% 55% 45% / 60% 40% 55% 45%; }
+      50% { border-radius: 10% 90% 80% 20% / 20% 80% 10% 90%; }
+    }
+    @keyframes morph3 {
+      0%, 100% { border-radius: 30% 70% 50% 50% / 60% 40% 50% 50%; }
+      50% { border-radius: 70% 30% 10% 90% / 90% 10% 30% 70%; }
+    }
+    @keyframes morph4 {
+      0%, 100% { border-radius: 45% 55% 35% 65% / 55% 45% 65% 35%; }
+      50% { border-radius: 20% 80% 80% 20% / 80% 20% 20% 80%; }
+    }
+    @keyframes morph5 {
+      0%, 100% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
+      50% { border-radius: 30% 90% 40% 80% / 20% 80% 10% 90%; }
+    }
+    .scribble {
+      position: absolute;
+      background: none;
+      border: none;
+      pointer-events: none;
+      opacity: 0.3;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <div class="organic-shape shape1"></div>
+  <div class="organic-shape shape2"></div>
+  <div class="organic-shape shape3"></div>
+  <div class="organic-shape shape4"></div>
+  <div class="organic-shape shape5"></div>
+
+  <!-- Broken vertical lines -->
+  <img src="data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' width='40' height='200'>
+  <path d='M10 0 L10 50 M10 70 L10 120 M10 140 L10 160' stroke='black' stroke-width='0.7' fill='none'/>
+</svg>" class="scribble" style="top: 60px; left: 20%;" />
+
+  <!-- Fragmented horizontal - short, medium, long -->
+  <img src="data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' width='300' height='40'>
+  <path d='M0 10 L30 10' stroke='black' stroke-width='0.6' fill='none'/>
+  <path d='M50 10 L120 10' stroke='black' stroke-width='0.6' fill='none'/>
+  <path d='M140 10 L290 10' stroke='black' stroke-width='0.6' fill='none'/>
+</svg>" class="scribble" style="top: 400px; left: 25%;" />
+
+  <!-- Drooping curved line -->
+  <img src="data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' width='200' height='100'>
+  <path d='M10 50 Q 100 90, 190 50' stroke='black' stroke-width='0.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/>
+</svg>" class="scribble" style="top: 200px; left: 55%;" />
+
+  <!-- Sputtering diagonal -->
+  <img src="data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'>
+  <path d='M0 0 L30 30 M50 50 L80 80 M100 100 L130 130' stroke='black' stroke-width='0.7' fill='none'/>
+</svg>" class="scribble" style="top: 150px; left: 65%;" />
+</body>
+</html>
