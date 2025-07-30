@@ -18,7 +18,12 @@
 <script src="script.js"></script>
 
 <script>
-// Removed auto-fade and redirect behavior
+  setTimeout(function() {
+    document.body.classList.add('fade-out');
+    setTimeout(function() {
+      window.location.href = "hl2.html";
+    }, 8000); // Wait for the fade-out transition to complete
+  }, 5000);
 </script>
 
 </body>
