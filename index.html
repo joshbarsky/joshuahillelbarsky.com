@@ -1,139 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+<!-- homepage v1.1 -->
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Joshua Hillel Barsky</title>
   <style>
-    body {
-      margin: 40px 0 0;
-      padding: 0 10px;
-      background: white;
-      font-family: "Times New Roman", serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      min-height: 100vh;
-      text-align: center;
-      box-sizing: border-box;
-    }
-
-    .button {
-      font-size: 1em;
-      text-decoration: none;
-      color: black;
-      border: 1px solid black;
-      padding: 8px 16px;
-      margin: 12px;
-      background: white;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      width: 80%;
-      max-width: 300px;
-    }
-
-    .button:hover {
-      background-color: #f0f0f0;
-    }
-
-    .image-button {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .image-button img {
-      width: 60vw;
-      max-width: 200px;
-      border: 1px solid black;
-      display: block;
-      height: auto;
-    }
-
-    .label-button {
-      text-decoration: none;
-      color: black;
-      border: 1px solid black;
-      padding: 8px 0;
-      font-size: 1em;
-      text-align: center;
-      margin-top: 0;
-      width: 60vw;
-      max-width: 200px;
-      background-color: white;
-    }
-
-    .label-button:hover {
-      background-color: #f0f0f0;
-    }
-
-    footer {
-      margin-top: 40px;
-      font-size: 10px;
-      font-family: 'Times New Roman', serif;
-      color: black;
-    }
-
-    footer a {
-      color: black;
-      text-decoration: none;
-      font-style: normal;
-      transition: font-style 0.3s;
-    }
-
-    footer a:hover {
-      font-style: italic;
-    }
-
-    @media (max-width: 600px) {
-      .button,
-      .label-button {
-        width: 100%;
-      }
-
-      footer {
-        font-size: 12px;
-      }
-    }
+  body {
+    margin: 1rem;
+    background: #fff;
+    color: #000;
+    font-family: serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+  ul li a {
+    display: block;
+    padding: .6rem 0;
+  }
+  ul li a:hover {
+  }
+  footer {
+    margin-top: 4rem;
+  }
   </style>
 </head>
 <body>
-  <div class="image-button">
-    <img alt="Fortress" src="./fortress4web.png"/>
-    <a class="label-button" href="./fortress.html" id="btn1">
-      novel, <em>FORTRESS</em> (2025)
-    </a>
-  </div>
-
-
-  <a class="button" href="./no-delete-autosave-v3.html" id="btn3">no-delete, word processor</a>
-  <a class="button" href="https://www.youtube.com/@joshuabarsky/videos" id="btn4">youtube</a>
-  <a class="button" href="./honey_locust_animation_expansion/index.html" id="btn4b">The Honey Locust</a>
-  <a class="button" href="./11.29/1.1-index.html" id="btn2">untitled, part one</a>
-
-    
-  <footer><a href="mailto:joshuabarsky@gmail.com">JOSHUA HILLEL BARSKY</a></footer>
+  <main>
+    <ul>
+      <li><a href="https://archive.org/details/fortress-joshua-hillel-barsky-2025">FORTRESS</a></li>
+      <li>
+	<a href="no-delete-autosave-v4.html">no delete, WP</a></li>
+    </ul>
+    <footer><a href="mailto:joshuabarsky@gmail.com">Joshua Hillel Barsky</a></footer>
+  </main>
 </body>
-<script>
-  function subtleFloat(button) {
-    let angle = 0;
-    const radius = 2;
-    function move() {
-      angle += 0.01;
-      const x = Math.cos(angle) * radius;
-      const y = Math.sin(angle) * radius;
-      button.style.transform = `translate(${x}px, ${y}px)`;
-      requestAnimationFrame(move);
-    }
-    move();
-  }
-
-  subtleFloat(document.getElementById('btn1'));
-  subtleFloat(document.getElementById('btn2'));
-  subtleFloat(document.getElementById('btn3'));
-  subtleFloat(document.getElementById('btn4a'));
-  subtleFloat(document.getElementById('btn4b'));
-</script>
 </html>
